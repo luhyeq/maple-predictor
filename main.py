@@ -39,7 +39,7 @@ async def crash(ctx):
     em = discord.Embed(color=0x2f3136)
     em.add_field(name="<a:crash:1014956565293441045> Crash Prediction", value=(f"```⇀ {prediction}x```"))
     em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
     await ctx.author.send(embed=em)
 
 
@@ -126,7 +126,7 @@ async def mines(ctx, round_id):
     em = discord.Embed(title="Maple Prediction",
     description="\n" + "\n" + row1 + "\n" + row2 + "\n" + row3 + "\n" + row4 + "\n" + row5 + "\n" + "\n" + "**Probability**" + "\n" + f"```⇀ {info}%```", color=0x2f3136)
     em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
     await ctx.author.send(embed=em)
 
 @bot.command(aliases=["p"])
@@ -149,7 +149,7 @@ async def send(ctx, *, message):
 async def help(ctx):
     em = discord.Embed(description="\n__**Crash**__\n```⇀ Predicts when the game would possibly crash.\nUse ;crash```\n__**Mines**__\n```⇀ Predicts the possible outcome of the next game of mines.\nUse ;mines```",color=0x2f3136)
     em.set_author(icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png", name="Maple")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
     em.set_footer(text=f"Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
     await ctx.author.send(embed=em)
 
