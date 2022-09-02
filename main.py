@@ -11,7 +11,7 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing,name=f"Buy @ discord.gg/maplepredictor"))
+  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing,name=f"Buy - discord.gg/fHWBkdtzge"))
   print(f"maple ")
 
 @bot.command()
@@ -50,7 +50,7 @@ async def mines(ctx, round_id):
   round_length = len(round_id)
 
   if round_length < 36:
-    em = discord.Embed(description="<:ex:1015040061546442853> Invalid Round `ID`", color=0x2f3136)
+    em = discord.Embed(description="<:ex:1015040061546442853> `Invalid` Round `ID`", color=0x2f3136)
     await ctx.author.send(embed=em)
 
   elif round_length  == 36:
