@@ -1,8 +1,9 @@
 from discord.ext import commands
 import discord
 from discord.utils import get
-import json
 import os
+import datetime
+import time
 import random
 
 bot = commands.Bot(command_prefix=";", intents=discord.Intents.all())
@@ -11,10 +12,10 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing,name=f"Buy - discord.gg/fHWBkdtzge"))
+  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing,name=f"Buy @ discord.gg/maplepredictor"))
   print(f"maple ")
 
-@bot.command()
+@bot.command(aliases=["wl", "verify", "veri", "vr"])
 @commands.has_role("Owner")
 async def whitelist(ctx, member : discord.Member):
     await ctx.message.delete()
@@ -23,7 +24,7 @@ async def whitelist(ctx, member : discord.Member):
     em = discord.Embed(description=f"<a:success:1015040067720466432> `Whitelisted` {member.mention}", color=0x2f3136)
     await ctx.send(embed=em)
 
-@bot.command()
+@bot.command(aliases=["dwl","unverify", "dvr", "d"])
 @commands.has_role("Owner")
 async def dewhitelist(ctx, member : discord.Member):
     await ctx.message.delete()
@@ -37,10 +38,21 @@ async def dewhitelist(ctx, member : discord.Member):
 async def crash(ctx):
     prediction = round(random.uniform(1, 11), 2)
     em = discord.Embed(color=0x2f3136)
-    em.add_field(name="<a:crash:1014956565293441045> Crash Prediction", value=(f"```⇀ {prediction}x```"))
-    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
+    em.add_field(name="<a:crash:1014956565293441045> Crash Predictor", value=(f"```⇀ {prediction}x```"))
+    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
     await ctx.author.send(embed=em)
+
+
+@bot.command()
+@commands.has_role("Owner")
+async def uptime(ctx):
+    start_time = time.time()
+    current_time = time.time()
+    difference = int(round(current_time - start_time))
+    text = str(datetime.timedelta(seconds=difference))
+    embed = discord.Embed(description=f"{text}", colour=0xc8dc6c)
+    await ctx.send(embed=embed)
 
 
 @bot.command()
@@ -50,7 +62,7 @@ async def mines(ctx, round_id):
   round_length = len(round_id)
 
   if round_length < 36:
-    em = discord.Embed(description="<:ex:1015040061546442853> `Invalid` Round `ID`", color=0x2f3136)
+    em = discord.Embed(description="<:ex:1015040061546442853> Invalid Round ID", color=0x2f3136)
     await ctx.author.send(embed=em)
 
   elif round_length  == 36:
@@ -124,9 +136,9 @@ async def mines(ctx, round_id):
     info = str(random.randint(75, 92))
 
     em = discord.Embed(title="Maple Prediction",
-    description="\n" + "\n" + row1 + "\n" + row2 + "\n" + row3 + "\n" + row4 + "\n" + row5 + "\n" + "\n" + "**Probability**" + "\n" + f"```⇀ {info}%```", color=0x2f3136)
-    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
+    description="\n" + "\n" + row1 + "\n" + row2 + "\n" + row3 + "\n" + row4 + "\n" + row5 + "\n" + "\n" + "**Accuracy**" + "\n" + f"```⇀ {info}%```", color=0x2f3136)
+    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
     await ctx.author.send(embed=em)
 
 @bot.command(aliases=["p"])
@@ -147,10 +159,10 @@ async def send(ctx, *, message):
 @bot.command(aliases=['h', 'cmds'])
 @commands.cooldown(1, 8, commands.BucketType.channel)
 async def help(ctx):
-    em = discord.Embed(description="\n__**Crash**__\n```⇀ Predicts when the game would possibly crash.\nUse ;crash```\n__**Mines**__\n```⇀ Predicts the possible outcome of the next game of mines.\nUse ;mines```",color=0x2f3136)
-    em.set_author(icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png", name="Maple")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
-    em.set_footer(text=f"Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015383600528642100/unknown.png")
+    em = discord.Embed(description="\n__**Crash**__\n```⇀ Predicts when the game would possibly crash.\nUse ;crash```\n__**Mines**__\n```⇀ Predicts the possible outcome of the next game of mines.\nUse ;mines [round id]```",color=0x2f3136)
+    em.set_author(icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png", name="Maple")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_footer(text=f"Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
     await ctx.author.send(embed=em)
 
-bot.run(os.environ["DISCORD_TOKEN"])
+bot.run("MTAxNDg1MzU5MjAzMDY0NjI3Mg.GgRy-D.nHKc8JOCEGhDLZwwAIPo0ShWejyUSKIxLeXGzM")
