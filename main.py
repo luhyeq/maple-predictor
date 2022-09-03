@@ -38,7 +38,7 @@ async def unverify(ctx, member : discord.Member):
 @bot.command()
 @commands.has_role("Customer")
 async def crash(ctx):
-    prediction = round(random.uniform(1, 5), 2)
+    prediction = round(random.uniform(1, 4), 2)
     
     if prediction > 2:
       em = discord.Embed(title="**Crash Prediction**", color=0x2f3136)
