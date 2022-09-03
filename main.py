@@ -40,18 +40,18 @@ async def unverify(ctx, member : discord.Member):
 async def crash(ctx):
     prediction = round(random.uniform(1, 4), 2)
     
-    if prediction > 2:
+    if prediction > 2.0:
       em = discord.Embed(title="**Crash Prediction**", color=0x2f3136)
       em.add_field(name="**Probably Above**", value=(f"```⇀ {prediction}x```"))
-      em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-      em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+      em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
+      em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
       await ctx.author.send(embed=em)
       
     else:
       em = discord.Embed(title="**Crash Prediction**", color=0x2f3136)
       em.add_field(name="**Around**", value=(f"```⇀ {prediction}x```"))
-      em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-      em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+      em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
+      em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
       await ctx.author.send(embed=em)
       
 
@@ -137,8 +137,8 @@ async def mines(ctx, round_id):
 
     em = discord.Embed(title="Maple Prediction",
     description="\n" + "\n" + row1 + "\n" + row2 + "\n" + row3 + "\n" + row4 + "\n" + row5 + "\n" + "\n" + "**Accuracy**" + "\n" + f"```⇀ {info}%```", color=0x2f3136)
-    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
     await ctx.author.send(embed=em)
 
 @bot.command(aliases=["p"])
@@ -160,9 +160,9 @@ async def send(ctx, *, message):
 @commands.cooldown(1, 8, commands.BucketType.channel)
 async def help(ctx):
     em = discord.Embed(description="\n__**Crash**__\n```⇀ Predicts when the game would possibly crash.\nUse ;crash```\n__**Mines**__\n```⇀ Predicts the possible outcome of the next game of mines.\nUse ;mines [round id]```",color=0x2f3136)
-    em.set_author(icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png", name="Maple")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-    em.set_footer(text=f"Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_author(icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png", name="Maple")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
+    em.set_footer(text=f"Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
     await ctx.author.send(embed=em)
 
 bot.run(os.environ["DISCORD_TOKEN"])
