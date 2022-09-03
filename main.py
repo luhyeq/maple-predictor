@@ -12,48 +12,46 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing,name=f"Buy @ discord.gg/maplepredictor"))
+  await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing,name=f"Buy — https://discord.gg/fHWBkdtzge"))
   print(f"maple ")
 
-@bot.command(aliases=["wl", "verify", "veri", "vr"])
+@bot.command(aliases=["veri"])
 @commands.has_role("Owner")
-async def whitelist(ctx, member : discord.Member):
+async def verify(ctx, member : discord.Member):
     await ctx.message.delete()
     role = get(member.guild.roles, name="Customer")
     await member.add_roles(role)
-    em = discord.Embed(description=f"<a:success:1015040067720466432> `Whitelisted` {member.mention}", color=0x2f3136)
+    em = discord.Embed(description=f"<a:success:1015040067720466432> `Verified` {member.mention}", color=0x2f3136)
     await ctx.send(embed=em)
 
-@bot.command(aliases=["dwl","unverify", "dvr", "d"])
+@bot.command(aliases=["unveri"])
 @commands.has_role("Owner")
-async def dewhitelist(ctx, member : discord.Member):
+async def unverify(ctx, member : discord.Member):
     await ctx.message.delete()
     role = get(member.guild.roles, name="Customer")
     await member.remove_roles(role)
-    em = discord.Embed(description=f"<a:success:1015040067720466432> `Unwhitelisted` {member.mention}", color=0x2f3136)
+    em = discord.Embed(description=f"<a:success:1015040067720466432> `Unverified` {member.mention}", color=0x2f3136)
     await ctx.send(embed=em)
 
 @bot.command()
 @commands.has_role("Customer")
 async def crash(ctx):
     prediction = round(random.uniform(1, 5), 2)
-    em = discord.Embed(color=0x2f3136)
-    em.add_field(name="<a:crash:1014956565293441045> Crash Predictor", value=(f"```⇀ {prediction}x```"))
-    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-    await ctx.author.send(embed=em)
-
-
-@bot.command()
-@commands.has_role("Owner")
-async def uptime(ctx):
-    start_time = time.time()
-    current_time = time.time()
-    difference = int(round(current_time - start_time))
-    text = str(datetime.timedelta(seconds=difference))
-    embed = discord.Embed(description=f"{text}", color=0x2f3136)
-    await ctx.send(embed=embed)
-
+    
+    if prediction > 3:
+      em = discord.Embed(title="Crash Predctor", color=0x2f3136)
+      em.add_field(name="**Probably Above**", value=(f"```⇀ {prediction}x```"))
+      em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+      em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+      await ctx.author.send(embed=em)
+      
+    else:
+      em = discord.Embed(title="Crash Prediction"color=0x2f3136)
+      em.add_field(name="**Around**", value=(f"```⇀ {prediction}x```"))
+      em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+      em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+      await ctx.author.send(embed=em)
+      
 
 @bot.command()
 @commands.has_role("Customer")
@@ -62,7 +60,7 @@ async def mines(ctx, round_id):
   round_length = len(round_id)
 
   if round_length < 36:
-    em = discord.Embed(description="<:ex:1015040061546442853> Invalid Round ID", color=0x2f3136)
+    em = discord.Embed(description="<:ex:1015040061546442853> **Invalid** `Round ID`", color=0x2f3136)
     await ctx.author.send(embed=em)
 
   elif round_length  == 36:
