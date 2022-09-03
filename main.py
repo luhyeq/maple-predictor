@@ -6,7 +6,7 @@ import datetime
 import time
 import random
 
-bot = commands.Bot(command_prefix=";", intents=discord.Intents.all())
+bot = commands.Bot(command_prefix=";", intents=discord.Intents.default())
 
 bot.remove_command('help')
 
