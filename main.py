@@ -40,9 +40,9 @@ async def unverify(ctx, member : discord.Member):
 async def crash(ctx):
     prediction = round(random.uniform(1, 4), 2)
     
-    if prediction > 2.0:
+    if prediction > 3.0:
       em = discord.Embed(title="__**Crash Prediction**__", color=0x2f3136)
-      em.add_field(name="**Probably Above**", value=(f"```⇀ 2.0x — Most likely to crash at {prediction}x```"))
+      em.add_field(name="**Probably Above**", value=(f"```⇀ 3.0x — Most likely to crash at {prediction}x```"))
       em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
       em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
       await ctx.author.send(embed=em)
