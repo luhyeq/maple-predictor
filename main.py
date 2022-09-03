@@ -51,7 +51,7 @@ async def uptime(ctx):
     current_time = time.time()
     difference = int(round(current_time - start_time))
     text = str(datetime.timedelta(seconds=difference))
-    embed = discord.Embed(description=f"{text}", colour=0xc8dc6c)
+    embed = discord.Embed(description=f"{text}", color=0x2f3136)
     await ctx.send(embed=embed)
 
 
