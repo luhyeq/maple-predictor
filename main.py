@@ -165,4 +165,4 @@ async def help(ctx):
     em.set_footer(text=f"Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
     await ctx.author.send(embed=em)
 
-bot.run(os.environ["DISCORD_BOT_TOKEN"])
+bot.run(os.environ["DISCORD_TOKEN"])
