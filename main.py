@@ -46,7 +46,7 @@ async def crash(ctx):
       await ctx.author.send(embed=em)
       
     else:
-      em = discord.Embed(title="Crash Prediction"color=0x2f3136)
+      em = discord.Embed(title="Crash Prediction", color=0x2f3136)
       em.add_field(name="**Around**", value=(f"```⇀ {prediction}x```"))
       em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
       em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
