@@ -17,24 +17,6 @@ async def on_ready():
   await bot.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.playing,name=f"Buy — https://discord.gg/fHWBkdtzge"))
   print(f"maple ")
 
-@bot.command(aliases=["veri"])
-@commands.has_role("Owner")
-async def verify(ctx, member : discord.Member):
-    await ctx.message.delete()
-    role = get(member.guild.roles, name="Customer")
-    await member.add_roles(role)
-    em = discord.Embed(description=f"<a:success:1015040067720466432> `Verified` {member.mention}", color=0x2f3136)
-    await ctx.send(embed=em)
-
-@bot.command(aliases=["unveri"])
-@commands.has_role("Owner")
-async def unverify(ctx, member : discord.Member):
-    await ctx.message.delete()
-    role = get(member.guild.roles, name="Customer")
-    await member.remove_roles(role)
-    em = discord.Embed(description=f"<a:success:1015040067720466432> `Unverified` {member.mention}", color=0x2f3136)
-    await ctx.send(embed=em)
-
 @bot.command()
 @commands.has_role("Customer")
 async def crash(ctx):
