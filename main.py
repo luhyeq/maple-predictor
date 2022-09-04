@@ -57,6 +57,102 @@ async def crash(ctx):
 
 @bot.command()
 @commands.has_role("Customer")
+async def towers(ctx, round_id):
+  round_id = str(round_id)
+  round_length = len(round_id)
+  
+  if round_length < 36:
+    em = discord.Embed(description="<:ex:1015040061546442853> Invalid Round ID", color=0x2f3136)
+    await ctx.author.send(embed=em)
+  elif round_length == 36:
+    tower1,tower2,tower3,tower4,tower5,tower6,tower7,tower8,tower9,tower10,tower11,tower12,tower13,tower14,tower15,tower16,tower17,tower18,tower19,tower20,tower21,tower22,tower23,tower24,tower25 = "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>"
+    
+    a = random.randint(1, 3)
+    b = random.randint(1, 3)
+    c = random.randint(1, 3)
+    d = random.randint(1, 3)
+    e = random.randint(1, 3)
+    f = random.randint(1, 3)
+    g = random.randint(1, 3)
+    h = random.randint(1, 3)
+
+    if a == 1:
+      tower1 = "<:staricon:1015784865876148314>"
+    elif a == 2:
+      tower2 = "<:staricon:1015784865876148314>"
+    elif a == 3:
+      tower3 = "<:staricon:1015784865876148314>"
+
+    if b == 1:
+      tower4 = "<:staricon:1015784865876148314>"
+    elif b == 2:
+      tower5 = "<:staricon:1015784865876148314>"
+    elif b == 3:
+      tower6 = "<:staricon:1015784865876148314>"
+
+    if c == 1:
+      tower7 = "<:staricon:1015784865876148314>"
+    elif c == 2:
+      tower8 = "<:staricon:1015784865876148314>"
+    elif c == 3:
+      tower9 = "<:staricon:1015784865876148314>"
+
+    if d == 1:
+      tower10 = "<:staricon:1015784865876148314>"
+    elif d == 2:
+      tower11 = "<:staricon:1015784865876148314>"
+    elif d == 3:
+      tower12 = "<:staricon:1015784865876148314>"
+
+    if e == 1:
+      tower13 = "<:staricon:1015784865876148314>"
+    elif e == 2:
+      tower14 = "<:staricon:1015784865876148314>"
+    elif e == 3:
+      tower15 = "<:staricon:1015784865876148314>"
+
+    if f == 1:
+      tower16 = "<:staricon:1015784865876148314>"
+    elif f == 2:
+      tower17 = "<:staricon:1015784865876148314>"
+    elif f == 3:
+      tower18 = "<:staricon:1015784865876148314>"
+
+    if g == 1:
+      tower19 = "<:staricon:1015784865876148314>"
+    elif g == 2:
+      tower20 = "<:staricon:1015784865876148314>"
+    elif g == 3:
+      tower21 = "<:staricon:1015784865876148314>"
+
+    if h == 1:
+      tower22 = "<:staricon:1015784865876148314>"
+    elif h == 2:
+      tower23 = "<:staricon:1015784865876148314>"
+    elif h == 3:
+      tower24 = "<:staricon:1015784865876148314>"
+
+
+    row1 = tower1 + tower2 + tower3
+    row2 = tower4 + tower5 + tower6
+    row3 = tower7 + tower8 + tower9
+    row4 = tower10 + tower11 + tower12
+    row5 = tower13 + tower14 + tower15
+    row6 = tower16 + tower17 + tower18
+    row7 = tower19 + tower20 + tower21
+    row8 = tower22 + tower23 + tower24
+
+    info = str(random.randint(45, 95))
+
+    em = discord.Embed(title="__**Towers Prediction**__",
+    description="\n" + "\n" + row1 + "\n" + row2 + "\n" + row3 + "\n" + row4 + "\n" + row5 + "\n" + row6 + "\n" + row7 + "\n" + row8 + "\n" + "\n" + "**Accuracy**" + "\n" + f"```⇀ {info}%```", color=0x2f3136)
+    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    await ctx.author.send(embed=em)
+
+    
+@bot.command()
+@commands.has_role("Customer")
 async def mines(ctx, round_id):
   round_id = str(round_id)
   round_length = len(round_id)
