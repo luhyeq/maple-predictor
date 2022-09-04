@@ -64,6 +64,7 @@ async def towers(ctx, round_id):
   if round_length < 36:
     em = discord.Embed(description="<:ex:1015040061546442853> Invalid Round ID", color=0x2f3136)
     await ctx.author.send(embed=em)
+    
   elif round_length == 36:
     tower1,tower2,tower3,tower4,tower5,tower6,tower7,tower8,tower9,tower10,tower11,tower12,tower13,tower14,tower15,tower16,tower17,tower18,tower19,tower20,tower21,tower22,tower23,tower24,tower25 = "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>", "<:ex:1015040061546442853>"
     
@@ -146,8 +147,8 @@ async def towers(ctx, round_id):
 
     em = discord.Embed(title="__**Towers Prediction**__",
     description="\n" + "\n" + row1 + "\n" + row2 + "\n" + row3 + "\n" + row4 + "\n" + row5 + "\n" + row6 + "\n" + row7 + "\n" + row8 + "\n" + "\n" + "**Accuracy**" + "\n" + f"```⇀ {info}%```", color=0x2f3136)
-    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
-    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1014931096959463484/unknown.png")
+    em.set_footer(text="Note: NOT all predictions will be a 100% accurate.", icon_url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
+    em.set_thumbnail(url="https://media.discordapp.net/attachments/1014588018335699065/1015734553488392232/unknown.png")
     await ctx.author.send(embed=em)
 
     
