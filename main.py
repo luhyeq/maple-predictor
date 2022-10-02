@@ -18,7 +18,7 @@ async def on_ready():
   print(f"maple ")
 
 @bot.command()
-@commands.has_role("Customer")
+@commands.has_role("customer")
 async def crash(ctx):
     prediction = round(random.uniform(1, 4), 2)
     
@@ -38,7 +38,7 @@ async def crash(ctx):
       
 
 @bot.command()
-@commands.has_role("Customer")
+@commands.has_role("customer")
 async def towers(ctx, round_id):
   round_id = str(round_id)
   round_length = len(round_id)
@@ -135,7 +135,7 @@ async def towers(ctx, round_id):
 
     
 @bot.command()
-@commands.has_role("Customer")
+@commands.has_role("customer")
 async def mines(ctx, round_id):
   round_id = str(round_id)
   round_length = len(round_id)
@@ -239,7 +239,7 @@ async def send(ctx, *, message):
 @commands.cooldown(1, 8, commands.BucketType.channel)
 async def help(ctx):
     em = discord.Embed(description="\n__**Crash**__\n```⇀ Predicts when the game would possibly crash.\nUse ;crash```\n__**Mines**__\n```⇀ Predicts the possible outcome of the next game of mines.\nUse ;mines [round id]\n```__**Towers**__\n```⇀ Predicts the possible outcome of the next game of towers.\nUse ;towers [round id]```",color=0x2f3136)
-    em.set_author(icon_url="https://cdn.discordapp.com/attachments/1025741459976106094/1026242675780894730/9b0743b77a8857bf7233205c936d0d6c.jpg", name="Maple")
+    em.set_author(icon_url="https://cdn.discordapp.com/attachments/1025741459976106094/1026242675780894730/9b0743b77a8857bf7233205c936d0d6c.jpg", name="Lotus")
     em.set_thumbnail(url="https://cdn.discordapp.com/attachments/1025741459976106094/1026242675780894730/9b0743b77a8857bf7233205c936d0d6c.jpg")
     em.set_footer(text=f"Note: NOT all predictions will be a 100% accurate.", icon_url="https://cdn.discordapp.com/attachments/1025741459976106094/1026242675780894730/9b0743b77a8857bf7233205c936d0d6c.jpg")
     await ctx.author.send(embed=em)
